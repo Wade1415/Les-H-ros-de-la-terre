@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Les Héros de la Terre</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #f7faf6;
+      color: #223c26;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .lang-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: rgba(255,255,255,0.7);
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+.lang-switcher a {
+  margin: 0 5px;
+  font-weight: bold;
+  color: #223c26;
+}
+.lang-switcher a.active {
+  color: #223c26;
+}
+    
+    .hero {
+      background: url('5d2de942-65a8-11eb-a88b-02fe89184577.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+      text-align: center;
+      padding: 0 1em;
+    }
+    .hero .overlay {
+      background: rgba(34, 60, 38, 0.75);
+      padding: 2em 1em;
+      border-radius: 10px;
+      max-width: 700px;
+      width: 100%;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.25em;
+      margin: 0.3em 0;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 1.5em;
+      padding: 0.8em 2.5em;
+      background: #85b46c;
+      color: white;
+      border-radius: 25px;
+      font-weight: 700;
+      transition: background 0.3s ease;
+    }
+    .cta:hover {
+      background: #4a6b2a;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 3em auto;
+      padding: 0 1em;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(34, 60, 38, 0.08);
+    }
+    section h2 {
+      color: #4caf50;
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      border-bottom: 3px solid #85b46c;
+      padding-bottom: 0.3em;
+    }
+    section p, section ul {
+      font-size: 1.1em;
+      color: #2e3d27;
+    }
+    section ul {
+      padding-left: 1.5em;
+    }
+    section ul li {
+      margin-bottom: 0.6em;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 1em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: block;
+    }
+
+    #especes-recommandees .species-card {
+      overflow: hidden;
+      margin-bottom: 2em;
+      display: flex;
+      align-items: flex-start;
+      gap: 1em;
+    }
+    #especes-recommandees .species-card img {
+      flex-shrink: 0;
+      width: 200px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    #especes-recommandees .species-card div {
+      flex: 1;
+    }
+    #especes-recommandees .species-card h3 {
+      margin-top: 0;
+      color: #3a6b2a;
+    }
+
+    #galerie {
+      padding-top: 1em;
+    }
+    #galerie .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1em;
+    }
+    #galerie .gallery-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    #galerie .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    #contact {
+      background: #dbeed5;
+    }
+    #contact a {
+      color: #4caf50;
+      font-weight: bold;
+    }
+
+    #message-espoir {
+      max-width: 900px;
+      margin: 3em auto 5em;
+      padding: 1.5em 2em;
+      background-color: #e9f5e1;
+      border-left: 6px solid #4caf50;
+      font-style: italic;
+      color: #2e3d27;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(34, 60, 38, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+      #especes-recommandees .species-card {
+        flex-direction: column;
+        align-items: center;
+      }
+      #especes-recommandees .species-card img {
+        width: 100%;
+        max-width: 300px;
+      }
+      #especes-recommandees .species-card div {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="lang-switcher">
+    <a href="index-fr.html" class="active">FR</a>
+    <a href="index-en.html">EN</a>
+    <a href="index-es.html">ES</a>
+    <a href="index-ht.html">HT</a>
+  </nav>
+  
+  <header class="hero">
+    <div class="overlay">
+      <h1>Los Héroes de la Tierra</h1>
+      <p>Los estudiantes de Haití, héroes de la reforestación</p>
+      <p>Un proyecto educativo, participativo y comunitario para hacer verde nuestro futuro</p>
+      <a href="#mission" class="cta">Descubre nuestra misión</a>
+    </div>
+  </header>
+
+  <section id="mission">
+    <h2>Nuestra misión</h2>
+    <p>
+      « Los Héroes de la Tierra » es una iniciativa liderada por estudiantes para crear conciencia, educar y tomar acciones concretas contra la deforestación en Haití. Nuestro proyecto se centra en la participación activa de los jóvenes, la participación comunitaria y la elección de especies locales adecuadas.
+    </p>
+    <img src="images/eleves-plantation.jpg" alt="Élèves plantant des arbres" />
+  </section>
+
+  <section id="comment">
+    <h2>¿ Cómo funciona ?</h2>
+    <ul>
+      <li>Identificación participativa de áreas a reforestar con los estudiantes y la comunidad.</li>
+      <li>Elección colectiva de especies a plantar según las necesidades locales.</li>
+      <li>Plantación y seguimiento periódico por parte de los estudiantes, con cuaderno de bitácora y fotografías.</li>
+    </ul>
+    <img src="images/cartographie-participative.jpg" alt="Cartographie participative avec élèves" />
+  </section>
+
+  <section id="especes">
+    <h2>Especies locales replantadas</h2>
+    <ul>
+      <li>Moringa (Moringa oleifera) – crecimiento rápido, nutrición</li>
+      <li>Gliricidie (Gliricidia sepium) – mejora del suelo</li>
+      <li>Cassie blanc (Leucaena leucocephala) – fijación de nitrógeno</li>
+      <li>Papaya (Carica papaya) - frutal, rápido crecimiento</li>
+      <li>Neem (Azadirachta indica) - propiétés medicinales</li>
+      <li>Vetiver (Chrysopogon zizanioides) - protección contra la erosión, fabricación de perfumes</li>
+      <li>Cassia du Siam (Cassia siamea) - ornamental, resistente</li>
+    </ul>
+  </section>
+
+  <section id="especes-recommandees">
+    <h2>Especies recomendadas y por qué elegirlas</h2>
+
+    <div class="species-card">
+      <img src="115492120.cms.webp" alt="Moringa oleifera" />
+      <div>
+        <h3>Moringa oleifera</h3>
+        <p>Elegida por su rápido crecimiento, resistencia a la sequía y propiedades nutricionales. Ayuda a combatir la desnutrición local.</p>
+      </div>
+    </div>
+
+    <div class="species-card">
+      <img src="100-gliricidia-sepium-seeds-100-gms-48-degrees-original-imahafugqvfrkfmp.jpeg.webp" alt="Gliricidia sepium" />
+      <div>
+        <h3>Gliricidia sepium</h3>
+        <p>Especie fijadora de nitrógeno que mejora la fertilidad del suelo, favorece el crecimiento de otras plantas y proporciona sombra.</p>
+      </div>
+    </div>
+
+    <div class="species-card">
+        <img src="10_neem-carrier-oil-4__17440.jpg" alt="Neem" />
+        <div>
+          <h3>Neem</h3> 
+          <p>Rápido crecimiento en clima tropical muy resistente a la sequía, propiedades medicinales y repelentes de insectos.</p>
+        </div>
+    </div>
+
+    <div class="species-card">
+        <img src="2400-gin-cassia-siamea-400-gms-green-india-original-imafq92crg8cduvp.jpeg.webp" alt="Neem" />
+        <div>
+          <h3>Cassia siamea</h3> 
+          <p>Árbol muy duradero, de rápido crecimiento, hojas decorativas, proporciona sombra y se puede utilizar como leña.</p>
+        </div>
+    </div>
+
+    <div class="species-card">
+        <img src="papayer.jpg" alt="Papayer" />
+        <div>
+          <h3>Papaya (Carica papaya)</h3> 
+          <p>Árbol frutal de rápido crecimiento, útil para alimentarse, fácil de plantar cerca de las casas.</p>
+        </div>
+    </div>
+
+    <div class="species-card">
+        <img src="Chrysopogon-zizanioides-Vue-generale-CC-BY-3.0-US-Forest-et-Kim-Starr.jpg" alt="Vetiver" />
+        <div>
+          <h3>Vetiver (Chrysopogon zizanioides)</h3> 
+          <p>Planta herbácea, protege contra la erosión, crece en grupos densos, ideal como complemento a la reforestación.</p>
+        </div>
+    </div>
+
+    <div class="species-card">
+      <img src="1629192843-leucaenaleucocephala13.jpg" alt="Leucaena leucocephala" />
+      <div>
+        <h3>Leucaena leucocephala</h3>
+        <p>Utilizada para enriquecer el suelo con nitrógeno, crece rápidamente y ayuda a estabilizar terrenos degradados.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerie">
+    <h2>Galerie d’images</h2>
+    <div class="gallery-grid">
+      <img src="images/plantation1.jpg" alt="Plantation d’arbres par les élèves" />
+      <img src="images/plantation2.jpg" alt="Jeunes en pleine plantation" />
+      <img src="ChatGPT Image 21 mai 2025 à 18_43_28.png" alt="Affiches réalisées par les élèves" />
+      <img src="EWEXMAT0101-2-800x530.jpg" alt="Terrain reboisé après plantation" />
+      <img src="images/eleves-familles.jpg" alt="Élèves et familles participant au projet" />
+      <video controls poster="images/vignette-video.jpg" width="100%">
+        <source src="videos/video-projet.mp4" type="video/mp4">
+        Votre navigateur ne prend pas en charge la vidéo.
+      </video>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contacto</h2>
+    <p>
+      ¿Quieres saber más, apoyar el proyecto o participar?<br>
+      Contáctanos por email : <a href="mailto:herosdelaterre@gmail.com">herosdelaterre@gmail.com</a>
+    </p>
+    <p>
+      <strong>¡Únete a nosotros, conviértete en un héroe de la Tierra!</strong>
+    </p>
+  </section>
+
+  <section id="message-espoir">
+    <p>
+      « Cada árbol que plantamos es una promesa hecha a la Tierra. Una semilla de esperanza para Haití. Juntos, no solo reverdecemos un espacio, sino que reconstruimos nuestro futuro, reinventamos nuestros gestos y avanzamos mano a mano hacia un planeta más vivo y más justo. »
+    </p>
+  </section>
+</body>
+</html>
